@@ -1,0 +1,122 @@
+[import](common.lg)
+
+# SendActivity_Greeting()
+[Activity
+    Text = ${SendActivity_Greeting_text()}
+]
+
+# SendActivity_Greeting_text()
+- Welcome to your bot.
+
+# SendActivity_DidNotUnderstand()
+[Activity
+    Text = ${SendActivity_DidNotUnderstand_text()}
+]
+
+# SendActivity_DidNotUnderstand_text()
+- Sorry, I didn't get that.
+# ChoiceInput_Prompt_VfXbIo()
+[Activity
+    Text = ${ChoiceInput_Prompt_VfXbIo_text()}
+]
+
+# ChoiceInput_Prompt_VfXbIo_text()
+- Please select any topic case from below
+# ChoiceInput_Prompt_hzNtiA()
+[Activity
+    Text = ${ChoiceInput_Prompt_hzNtiA_text()}
+]
+
+# ChoiceInput_Prompt_hzNtiA_text()
+- Select your course
+# ChoiceInput_Prompt_NCbbGB()
+[Activity
+    Text = ${ChoiceInput_Prompt_NCbbGB_text()}
+]
+
+# ChoiceInput_Prompt_NCbbGB_text()
+- Select time period
+# SendActivity_QqTcBR()
+[Activity
+    Text = ${SendActivity_QqTcBR_text()}
+]
+
+# SendActivity_QqTcBR_text()
+- Course selected :  ${user.course}
+# SendActivity_TDA0G7()
+[Activity
+    Text = ${SendActivity_TDA0G7_text()}
+]
+
+# SendActivity_TDA0G7_text()
+- Time period selected for ${user.course} : ${user.timeperiod}
+# ChoiceInput_Prompt_OjT1BC_text()
+- Select course from below
+# ChoiceInput_Prompt_OjT1BC()
+[Activity
+    Text = ${ChoiceInput_Prompt_OjT1BC_text()}
+]
+
+# SendActivity_jQXixs_text()
+- Selected course : ${user.course}
+# SendActivity_jQXixs()
+[Activity
+    Text = ${SendActivity_jQXixs_text()}
+]
+
+# ChoiceInput_Prompt_h33cnm_text()
+- Select course time preiod
+# ChoiceInput_Prompt_h33cnm()
+[Activity
+    Text = ${ChoiceInput_Prompt_h33cnm_text()}
+]
+
+# SendActivity_lhCQ2X_text()
+- Selected time period for ${user.course} : ${user.timeperiod}
+# SendActivity_lhCQ2X()
+[Activity
+    Text = ${SendActivity_lhCQ2X_text()}
+]
+
+# SendActivity_ytklHH()
+[Activity
+    Text = ${SendActivity_ytklHH_text()}
+]
+
+# SendActivity_ytklHH_text()
+- Thank You
+# ChoiceInput_Prompt_vvFG0h()
+[Activity
+    Text = ${ChoiceInput_Prompt_vvFG0h_text()}
+]
+
+# ChoiceInput_Prompt_vvFG0h_text()
+- Please select a reason
+# SendActivity_ZitFom()
+[Activity
+    Text = ${SendActivity_ZitFom_text()}
+]
+
+# SendActivity_ZitFom_text()
+- Thank you for your response. Will proceed with your account deletion.
+# TextInput_Prompt_ZUObZ3()
+[Activity
+    Text = ${TextInput_Prompt_ZUObZ3_text()}
+]
+
+# TextInput_Prompt_ZUObZ3_text()
+- Please tell me how can i help you?
+# SendActivity_flom2n()
+[Activity
+    Text = ${SendActivity_flom2n_text()}
+]
+
+# SendActivity_flom2n_text()
+- Java is powerfull.
+# SendActivity_fFVggE()
+[Activity
+    Text = ${SendActivity_fFVggE_text()}
+]
+
+# SendActivity_fFVggE_text()
+- THis is defualt switch case

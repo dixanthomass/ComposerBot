@@ -1,0 +1,287 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "name": "ComposerBot",
+    "description": "",
+    "id": "A79tBe"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnConversationUpdateActivity",
+      "$designer": {
+        "id": "376720",
+        "comment": "This trigger runs when a conversation update activity is sent to the bot. This indicates a user or bot being added or removed from a conversation."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "518944",
+            "name": "Loop: for each item",
+            "comment": "For each member added to the conversation."
+          },
+          "itemsProperty": "turn.Activity.membersAdded",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "641773",
+                "name": "Branch: if/else",
+                "comment": "Checks that that member added ID does not match the bot ID. This prevents the greeting message from being sent when the bot is added to a conversation."
+              },
+              "condition": "=string(dialog.foreach.value.id) != string(turn.Activity.Recipient.id)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "859266",
+                    "name": "Send a response"
+                  },
+                  "activity": "${SendActivity_Greeting()}"
+                },
+                {
+                  "$kind": "Microsoft.ChoiceInput",
+                  "$designer": {
+                    "id": "VfXbIo"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "prompt": "${ChoiceInput_Prompt_VfXbIo()}",
+                  "property": "user.choice",
+                  "style": "auto",
+                  "choices": [
+                    "Registration",
+                    "Account Deletion",
+                    "Ask a question",
+                    "Nothing"
+                  ],
+                  "recognizerOptions": {
+                    "recognizeOrdinals": true
+                  }
+                },
+                {
+                  "$kind": "Microsoft.SwitchCondition",
+                  "$designer": {
+                    "id": "GQiXgT"
+                  },
+                  "condition": "user.choice",
+                  "cases": [
+                    {
+                      "value": "Registration",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.ChoiceInput",
+                          "$designer": {
+                            "id": "OjT1BC"
+                          },
+                          "defaultLocale": "en-us",
+                          "disabled": false,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "prompt": "${ChoiceInput_Prompt_OjT1BC()}",
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "choiceOptions": {
+                            "includeNumbers": true
+                          },
+                          "property": "user.course",
+                          "choices": [
+                            "C#",
+                            "Java",
+                            "Python"
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "jQXixs"
+                          },
+                          "activity": "${SendActivity_jQXixs()}"
+                        },
+                        {
+                          "$kind": "Microsoft.ChoiceInput",
+                          "$designer": {
+                            "id": "h33cnm"
+                          },
+                          "defaultLocale": "en-us",
+                          "disabled": false,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "prompt": "${ChoiceInput_Prompt_h33cnm()}",
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "choiceOptions": {
+                            "includeNumbers": true
+                          },
+                          "property": "user.timeperiod",
+                          "choices": [
+                            "3 Months",
+                            "6 Months",
+                            "12 Months"
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "lhCQ2X"
+                          },
+                          "activity": "${SendActivity_lhCQ2X()}"
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "ytklHH"
+                          },
+                          "activity": "${SendActivity_ytklHH()}"
+                        },
+                        {
+                          "$kind": "Microsoft.RepeatDialog",
+                          "$designer": {
+                            "id": "7yeZSf"
+                          },
+                          "activityProcessed": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Account Deletion",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.ChoiceInput",
+                          "$designer": {
+                            "id": "vvFG0h"
+                          },
+                          "defaultLocale": "en-us",
+                          "disabled": false,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "prompt": "${ChoiceInput_Prompt_vvFG0h()}",
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "choiceOptions": {
+                            "includeNumbers": true
+                          },
+                          "property": "user.deletionreason",
+                          "choices": [
+                            "No Interseted",
+                            "Course is too slow"
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "ZitFom"
+                          },
+                          "activity": "${SendActivity_ZitFom()}"
+                        },
+                        {
+                          "$kind": "Microsoft.RepeatDialog",
+                          "$designer": {
+                            "id": "6ljOsA"
+                          },
+                          "activityProcessed": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Ask a question",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.TextInput",
+                          "$designer": {
+                            "id": "ZUObZ3"
+                          },
+                          "disabled": false,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "prompt": "${TextInput_Prompt_ZUObZ3()}",
+                          "property": "user.question"
+                        },
+                        {
+                          "$kind": "Microsoft.RepeatDialog",
+                          "$designer": {
+                            "id": "rQEdcP"
+                          },
+                          "activityProcessed": true
+                        }
+                      ]
+                    }
+                  ],
+                  "default": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "fFVggE"
+                      },
+                      "activity": "${SendActivity_fFVggE()}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnUnknownIntent",
+      "$designer": {
+        "id": "mb2n1u",
+        "comment": "This trigger fires when an incoming activity is not handled by any other trigger."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "kMjqz1",
+            "comment": "It is recommended to show a message to the user when the bot does not know how to handle an incoming activity and provide follow up options or a help message."
+          },
+          "activity": "${SendActivity_DidNotUnderstand()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "sYbGW7",
+        "name": "Java"
+      },
+      "intent": "Java",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "flom2n"
+          },
+          "activity": "${SendActivity_flom2n()}"
+        }
+      ]
+    }
+  ],
+  "generator": "ComposerBot.lg",
+  "id": "ComposerBot",
+  "recognizer": "ComposerBot.lu.qna"
+}
